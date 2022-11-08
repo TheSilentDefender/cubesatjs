@@ -99,6 +99,9 @@ export class InfoCommand implements Command {
                             ? fileSize(memory.heapUsed / serverCount)
                             : Lang.getRef('other.na', data.lang),
                     HOSTNAME: os.hostname(),
+                    CPU_MODEL: os.cpus()[0].model,
+                    CPU_CORES: os.cpus().length.toLocaleString(),
+                    CPU_SPEED: `${os.cpus()[0].speed.toLocaleString()} MHz`,
                     SHARD_ID: (intr.guild?.shardId ?? 0).toString(),
                     SERVER_ID: intr.guild?.id ?? Lang.getRef('other.na', data.lang),
                     BOT_ID: intr.client.user?.id,
